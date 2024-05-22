@@ -19,7 +19,7 @@ const nextConfig = {
 
 ## Solution Architecture
 
-![Next.js Serverless Architecture](nextjs-serverless-architecture.png)
+![Next.js Serverless Architecture](aws-lambda-nextjs/nextjs-serverless-architecture.png)
 
 ## Requirements
 
