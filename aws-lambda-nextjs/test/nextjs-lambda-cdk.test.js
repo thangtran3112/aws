@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const cdk = require("aws-cdk-lib");
+const assertions_1 = require("aws-cdk-lib/assertions");
+const NextjsLambdaCdk = require("../lib/nextjs-lambda-cdk-stack");
+test('SQS Queue and SNS Topic Created', () => {
+    // Arrange
+    const app = new cdk.App();
+    // Act
+    const stack = new NextjsLambdaCdk.NextjsLambdaCdkStack(app, 'MyTestStack');
+    // Assert
+    const template = assertions_1.Template.fromStack(stack);
+    template.resourceCountIs('AWS::S3::Bucket', 1);
+    template.resourceCountIs('AWS::CloudFront::Distribution', 1);
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmV4dGpzLWxhbWJkYS1jZGsudGVzdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5leHRqcy1sYW1iZGEtY2RrLnRlc3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxtQ0FBbUM7QUFDbkMsdURBQXlEO0FBQ3pELGtFQUFrRTtBQUVsRSxJQUFJLENBQUMsaUNBQWlDLEVBQUUsR0FBRyxFQUFFO0lBQzNDLFVBQVU7SUFDVixNQUFNLEdBQUcsR0FBRyxJQUFJLEdBQUcsQ0FBQyxHQUFHLEVBQUUsQ0FBQztJQUUxQixNQUFNO0lBQ04sTUFBTSxLQUFLLEdBQUcsSUFBSSxlQUFlLENBQUMsb0JBQW9CLENBQUMsR0FBRyxFQUFFLGFBQWEsQ0FBQyxDQUFDO0lBRTNFLFNBQVM7SUFDVCxNQUFNLFFBQVEsR0FBRyxxQkFBUSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUUzQyxRQUFRLENBQUMsZUFBZSxDQUFDLGlCQUFpQixFQUFFLENBQUMsQ0FBQyxDQUFDO0lBQy9DLFFBQVEsQ0FBQyxlQUFlLENBQUMsK0JBQStCLEVBQUUsQ0FBQyxDQUFDLENBQUM7QUFDL0QsQ0FBQyxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBjZGsgZnJvbSAnYXdzLWNkay1saWInO1xuaW1wb3J0IHsgVGVtcGxhdGUsIE1hdGNoIH0gZnJvbSAnYXdzLWNkay1saWIvYXNzZXJ0aW9ucyc7XG5pbXBvcnQgKiBhcyBOZXh0anNMYW1iZGFDZGsgZnJvbSAnLi4vbGliL25leHRqcy1sYW1iZGEtY2RrLXN0YWNrJztcblxudGVzdCgnU1FTIFF1ZXVlIGFuZCBTTlMgVG9waWMgQ3JlYXRlZCcsICgpID0+IHtcbiAgLy8gQXJyYW5nZVxuICBjb25zdCBhcHAgPSBuZXcgY2RrLkFwcCgpO1xuICBcbiAgLy8gQWN0XG4gIGNvbnN0IHN0YWNrID0gbmV3IE5leHRqc0xhbWJkYUNkay5OZXh0anNMYW1iZGFDZGtTdGFjayhhcHAsICdNeVRlc3RTdGFjaycpO1xuICBcbiAgLy8gQXNzZXJ0XG4gIGNvbnN0IHRlbXBsYXRlID0gVGVtcGxhdGUuZnJvbVN0YWNrKHN0YWNrKTtcblxuICB0ZW1wbGF0ZS5yZXNvdXJjZUNvdW50SXMoJ0FXUzo6UzM6OkJ1Y2tldCcsIDEpO1xuICB0ZW1wbGF0ZS5yZXNvdXJjZUNvdW50SXMoJ0FXUzo6Q2xvdWRGcm9udDo6RGlzdHJpYnV0aW9uJywgMSk7XG59KTtcbiJdfQ==
