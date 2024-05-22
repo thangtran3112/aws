@@ -23,10 +23,10 @@ const nextConfig = {
 
 ## Requirements
 
-- Node.js 16.x
+- Next v14
+- Node.js 20.x
 - [AWS Lambda Web Adapter](https://github.com/awslabs/aws-lambda-web-adapter)
-- AWS CDK 2.30.x
-- AWS SAM CLI 1.53.x
+- AWS CDK 2.142.x
 - Configured AWS credentials
 
 ## This was forked and extended to both app-router and page-router NextJS. [Official aws samples repo](https://github.com/aws-samples/aws-lambda-nextjs) is available.
