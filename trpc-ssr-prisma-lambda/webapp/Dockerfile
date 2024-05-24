@@ -7,7 +7,7 @@ COPY ./ ./
 RUN --mount=type=cache,target=/build/.next/cache npm run build
 
 FROM public.ecr.aws/lambda/nodejs:20 AS runner
-COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.1 /lambda-adapter /opt/extensions/lambda-adapter
+COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.8.3 /lambda-adapter /opt/extensions/lambda-adapter
 ENV AWS_LWA_PORT=3000
 ENV AWS_LWA_READINESS_CHECK_PATH="/api/health"
 # ENV RUST_LOG=debug # enable LWA debug logging
