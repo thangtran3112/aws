@@ -1,5 +1,6 @@
 # Amplify NextJs
 
+- This framework use Amplify Hosting Service, which are basically Cloudfront Lambda Edge for optimizing performance of NextJs Server-side apps
 - This template utilize `aws-amplify/auth` dependencies on client-side:
 
 ```
@@ -55,7 +56,9 @@ import {
 
 ## Amplify steps:
 
-- Node dependencies: `npm i aws-amplify @aws-amplify/adapter-nextjs`
-- Create `auth` folder
 - Optionally, we can use `amplify.yml` directly from root repo, not inside this mono-repo folder
-- We also need to add Environment variables or direct JSON files, which has cognito pool id and client id
+
+## Adding IAM policies for Amplify Computing roles
+
+![Configuring Amplify Web Compute Service Roles](imgs/amplify-compute-role.png)
+![Configuring Env variables](imgs/amplify-env.png)
