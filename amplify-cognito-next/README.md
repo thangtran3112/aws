@@ -57,3 +57,5 @@ import {
 
 - Node dependencies: `npm i aws-amplify @aws-amplify/adapter-nextjs`
 - Create `auth` folder
+- Optionally, we can use `amplify.yml` directly from root repo, not inside this mono-repo folder
+- We also need to add Environment variables or direct JSON files, which has cognito pool id and client id

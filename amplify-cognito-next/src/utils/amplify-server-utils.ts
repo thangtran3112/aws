@@ -1,4 +1,4 @@
-import { authConfig } from "@/app/amplify-cognito-config";
+import { DEFAULT_ADMIN_GROUP, authConfig } from "@/app/amplify-cognito-config";
 import { NextServer, createServerRunner } from "@aws-amplify/adapter-nextjs";
 import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth/server";
 
@@ -23,7 +23,7 @@ export async function authenticatedUser(context: NextServer.Context) {
         };
         const groups = session.tokens.accessToken.payload["cognito:groups"];
         // @ts-ignore
-        user.isAdmin = Boolean(groups && groups.includes("Admins"));
+        user.isAdmin = Boolean(groups && groups.includes(DEFAULT_ADMIN_GROUP));
 
         return user;
       } catch (error) {
