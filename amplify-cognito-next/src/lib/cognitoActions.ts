@@ -5,6 +5,7 @@ import {
   signIn,
   signOut,
   resendSignUpCode,
+  autoSignIn,
 } from "aws-amplify/auth";
 import { getErrorMessage } from "@/utils/get-error-message";
 
@@ -63,6 +64,7 @@ export async function handleConfirmSignUp(
       username: String(formData.get("email")),
       confirmationCode: String(formData.get("code")),
     });
+    await autoSignIn();
   } catch (error) {
     return getErrorMessage(error);
   }
