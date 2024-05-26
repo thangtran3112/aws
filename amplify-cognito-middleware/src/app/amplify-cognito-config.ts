@@ -2,8 +2,8 @@
 
 import { Amplify, type ResourcesConfig } from "aws-amplify";
 
-const DEFAULT_APP_CLIENT_ID = "68k2dajgpcli0ahpld1bpgat8j";
-const DEFAULT_POOL_ID = "us-east-1_cpbBUg7hs";
+const DEFAULT_APP_CLIENT_ID = "7vm1k8f8hd4pepnrhngnanbnen";
+const DEFAULT_POOL_ID = "us-east-1_kiKf2LBdd";
 export const DEFAULT_ADMIN_GROUP = "Admins";
 
 export const authConfig: ResourcesConfig["Auth"] = {
