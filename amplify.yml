@@ -16,4 +16,4 @@ applications:
         paths:
           - .next/cache/**/*
           - .npm/**/*
-    appRoot: amplify-cognito-next
+    appRoot: amplify-cognito-middleware
