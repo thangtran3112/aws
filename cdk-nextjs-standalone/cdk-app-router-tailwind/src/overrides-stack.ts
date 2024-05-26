@@ -1,10 +1,10 @@
-import { CfnOutput, Stack, StackProps, Token } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-import { Nextjs } from 'cdk-nextjs-standalone';
-import { PriceClass } from 'aws-cdk-lib/aws-cloudfront';
-import { Duration } from 'aws-cdk-lib';
-import { Billing, Capacity } from 'aws-cdk-lib/aws-dynamodb';
-import { SymlinkFollowMode } from 'aws-cdk-lib';
+import { CfnOutput, Stack, StackProps, Token } from "aws-cdk-lib";
+import { Construct } from "constructs";
+import { Nextjs } from "cdk-nextjs-standalone";
+import { PriceClass } from "aws-cdk-lib/aws-cloudfront";
+import { Duration } from "aws-cdk-lib";
+import { Billing, Capacity } from "aws-cdk-lib/aws-dynamodb";
+import { SymlinkFollowMode } from "aws-cdk-lib";
 
 /**
  * This stack showcases how to use the `overrides` prop.
@@ -13,9 +13,9 @@ export class OverridesStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const nextjs = new Nextjs(this, 'nextjs', {
-      nextjsPath: '../../open-next/examples/app-router',
-      buildCommand: 'npx open-next@^2 build',
+    const nextjs = new Nextjs(this, "nextjs", {
+      nextjsPath: "./app",
+      buildCommand: "npx open-next@^2 build",
       // skipBuild: true,
       overrides: {
         nextjs: {
@@ -31,34 +31,34 @@ export class OverridesStack extends Stack {
         nextjsBucketDeployment: {
           functionProps: {
             memorySize: 512,
-          }
+          },
         },
         nextjsDistribution: {
           cloudFrontFunctionProps: {
-            comment: "My CloudFront Function"
+            comment: "My CloudFront Function",
           },
           distributionProps: {
             priceClass: PriceClass.PRICE_CLASS_100,
           },
           edgeFunctionProps: {
-            memorySize: 256
+            memorySize: 256,
           },
           imageBehaviorOptions: {},
           imageCachePolicyProps: {
             maxTtl: Duration.days(30),
           },
           imageHttpOriginProps: {
-            customHeaders: { "x-custom-image-header": "1" }
+            customHeaders: { "x-custom-image-header": "1" },
           },
           s3OriginProps: {
-            customHeaders: { "x-custom-s3-header": "3" }
+            customHeaders: { "x-custom-s3-header": "3" },
           },
           serverBehaviorOptions: {},
           serverCachePolicyProps: {
             maxTtl: Duration.seconds(10),
           },
           serverHttpOriginProps: {
-            customHeaders: { "x-custom-server-header": "2" }
+            customHeaders: { "x-custom-server-header": "2" },
           },
           staticBehaviorOptions: {
             smoothStreaming: true,
@@ -66,10 +66,10 @@ export class OverridesStack extends Stack {
         },
         nextjsDomain: {
           aaaaRecordProps: {
-            ttl: Duration.minutes(45)
+            ttl: Duration.minutes(45),
           },
           aRecordProps: {
-            ttl: Duration.minutes(15)
+            ttl: Duration.minutes(15),
           },
           certificateProps: {
             transparencyLoggingEnabled: true,
@@ -104,7 +104,7 @@ export class OverridesStack extends Stack {
             billing: Billing.provisioned({
               readCapacity: Capacity.autoscaled({ maxCapacity: 10 }),
               writeCapacity: Capacity.autoscaled({ maxCapacity: 10 }),
-            })
+            }),
           },
         },
         nextjsServer: {
@@ -128,7 +128,7 @@ export class OverridesStack extends Stack {
           },
           nextjsBucketDeploymentProps: {},
         },
-      }
+      },
     });
 
     new CfnOutput(this, "CloudFrontDistributionDomain", {

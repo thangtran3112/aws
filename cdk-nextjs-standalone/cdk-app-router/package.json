@@ -2,6 +2,7 @@
   "name": "cdk-nextjs-standalone-example-app-router",
   "version": "0.1.0",
   "scripts": {
+    "ada": "ada credentials update --account=654654404647 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once",
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk"

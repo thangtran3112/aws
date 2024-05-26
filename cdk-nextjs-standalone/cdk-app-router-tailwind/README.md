@@ -1,4 +1,4 @@
-# Template for app-router nextjs project, without tailwind
+# Template for app-router nextjs project, with tailwind
 
 - Created with `npx create-next-app@latest`
 - All assets must be put into `public/static` for proper Cloudfront redirects
@@ -12,6 +12,13 @@ const nextConfig = {
   output: "standalone",
 };
 ```
+
+## Solution Architectures:
+
+- Since the next server is already running in Lambda (not Lambda@Edge), we have the option to authenticate requests directly inside `middleware.ts`
+- Another option is editing the original `cdk-nextjs` so we can rewrite Lambda@Edge to authenticate. Example:[cloudfront-authorization-at-edge](https://github.com/aws-samples/cloudfront-authorization-at-edge)
+
+  ![Next.js Serverless Architecture](architecture.png)
 
 ## Deployment Steps
 
