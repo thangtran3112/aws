@@ -1,6 +1,6 @@
-# Amplify NextJs
+# Amplify NextJs with Cognito middleware
 
-- This framework use Amplify Hosting Service, which are basically Cloudfront Lambda Edge for optimizing performance of NextJs Server-side apps
+- This framework use Amplify Hosting Service, which are basically CDN computing WEB_COMPUTE for optimizing performance of NextJs Server-side apps
 - This template utilize `aws-amplify/auth` dependencies on client-side:
 
 ```
@@ -54,11 +54,23 @@ import {
 - [Amplify deployment instructions](https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/#deploy-a-fullstack-app-to-aws)
 - Tutorial: https://www.youtube.com/watch?v=tHYVP5zgpac&list=PLug_z34YaEYsXkD2Z-6FpiziKXv04NCjw&index=5
 
-## Amplify steps:
+## Steps:
 
-- Optionally, we can use `amplify.yml` directly from root repo, not inside this mono-repo folder
+- Using CDK under `./cdk-helpers` package to create a simple user pools
+- Grab the User Pool Id and User Pool Client Id and put them into Amplify.configure():
 
-## Adding IAM policies for Amplify Computing roles
+```
+export const authConfig: ResourcesConfig["Auth"] = {
+  Cognito: {
+    userPoolId: String(process.env.USER_POOL_ID || DEFAULT_POOL_ID),
+    userPoolClientId: String(
+      process.env.APP_CLIENT_ID || DEFAULT_APP_CLIENT_ID
+    ),
+  },
+};
+```
 
 ![Configuring Amplify Web Compute Service Roles](imgs/amplify-compute-role.png)
 ![Configuring Env variables](imgs/amplify-env.png)
+
+- Optionally, we can use `amplify.yml` directly from root repo, not inside this mono-repo folder
