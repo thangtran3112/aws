@@ -1,0 +1,2 @@
+- [Set up your social auth provider](https://docs.amplify.aws/gen1/nextjs/build-a-backend/auth/add-social-provider/)
+- [Authenticator and withAuthenticator](https://ui.docs.amplify.aws/react/connected-components/authenticator)
