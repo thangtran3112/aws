@@ -1,6 +1,6 @@
-import Auth from "@/ui/Auth";
+import AuthProvider from "@/ui/AuthProvider";
 import "@aws-amplify/ui-react/styles.css";
 
 export default function Home() {
-  return <Auth />;
+  return <AuthProvider />;
 }
